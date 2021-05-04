@@ -1,8 +1,42 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script type="text/javascript" src="basic.js"></script>
+        <link rel="stylesheet" href="style.css"/>
+        <title>Game of Luck</title>
+        <link rel="icon" type="image/png" href="./img/rps.png" />
     </head>
-    <body>
+    <body class='site'>
+        <header>
+            <h1>Rock Paper Scissor</h1>
+
+            <ul class="container-menu">
+                <li class="score">0</li>
+                <li class="score reset">Reset</li>
+                <li class="score">0</li>
+            </ul>
+        </header>
+        <main class='site-content'>
+            <div class="icone-container">
+                <div><img src="./img/player.png" alt="player"></div>
+                <div class="icone-child-container">
+                    <div class="player-item icone"><img src="./img/rock.svg" alt="rock" class="logo"></div>
+                    <div class="player-item icone"><img src="./img/paper.svg" alt="paper" class="logo"></div>
+                    <div class="player-item icone"><img src="./img/scissor.svg" alt="scissor" class="logo"></div>
+                </div>
+
+                <div class="icone-child-container">
+                    <div class="computer-item icone"><img src="./img/rock.svg" alt="rock" class="logo"></div>
+                    <div class="computer-item icone"><img src="./img/paper.svg" alt="paper" class="logo"></div>
+                    <div class="computer-item icone"><img src="./img/scissor.svg" alt="scissor" class="logo"></div>
+                </div>
+                <div><img src="./img/computer.png" alt="computer"></div>
+            </div>
+            <div class="result">result</div>
+        </main>
+        <footer>
+            <div class="footer">footer</div>
+        </footer>
     </body>
+    
+    <script type="text/javascript" src="basic.js"></script>
 </html>
