@@ -100,8 +100,17 @@ h1{
 .log{
     font-size: 18px;
     list-style-type: none;
-    text-align: justify;
+    text-align: left;
     padding-top: 2px;
+    max-width: 500px;
+}
+
+.finalLog{
+    font-size: 25px;
+    color:#ffffff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding-top: 10px;
 }
 .tieLog{
     color: rgb(241, 185, 83);
