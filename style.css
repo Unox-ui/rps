@@ -2,7 +2,7 @@ body{
     background-color: #332b2b;
 }
 
-h1{
+h1,h4{
     text-align: center;
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
