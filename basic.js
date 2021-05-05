@@ -100,7 +100,7 @@ function removeclick(){
     this.classList.remove('playerPick');
     // replace the hover css pour player button except
     // for the last round 
-    if (roundNb < 5) this.classList.add('player-item');
+    if ((computerScore < 5) && (playerScore < 5)) this.classList.add('player-item');
 }
 
 // remove computer's animation
