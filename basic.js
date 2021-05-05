@@ -4,10 +4,15 @@ let playerScore = 0;
 let roundNb = 1;
 const maxPoints = 5;
 
-//Button declaration
+//player Button declaration
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
+
+//Computer Button declaration (for animation)
+const computerRockBtn = document.querySelector('#rockComputer');
+const computerPaperBtn = document.querySelector('#paperComputer');
+const computerScissorsBtn = document.querySelector('#scissorsComputer');
 
 //Score declaration
 const userScore = document.querySelector('#user-score')
@@ -39,8 +44,20 @@ function roundPlay(user, computer){
     }
 
 function playGame() {
-    roundPlay(this.id, computerPlay())
+    removeAnyAnimation()
+    var computerPick = computerPlay();
+    roundPlay(this.id, computerPick);
+    onclick(this.id);
+
+    if (computerPick === 'rock'){
+        computerRockBtn.classList.add('computerPick');
+    }
+    else if (computerPick === 'paper'){
+        computerPaperBtn.classList.add('computerPick');
+    }
+    else computerScissorsBtn.classList.add('computerPick');
     
+
     if ((computerScore >= maxPoints) || (playerScore >= maxPoints)) {
         rockBtn.removeEventListener('click', playGame);
         paperBtn.removeEventListener('click', playGame);
@@ -51,10 +68,12 @@ function playGame() {
         }
         else finalLog('You Lose !!');
 
-        addPlayAgainButton()
-
+        addPlayAgainButton();
+        removeHover();
     }
 }
+
+
 
 // Add a button to play again
 function addPlayAgainButton(){
@@ -69,8 +88,41 @@ function addPlayAgainButton(){
     resetBtn.addEventListener('click', refreshPage);
 }
 
+// play player's animation
+function onclick(id){
+    var item = document.getElementById(id);
+    item.classList.add('playerPick');
+    item.classList.remove('player-item');
+}
+
+// remove player's animation
+function removeclick(){
+    this.classList.remove('playerPick');
+    // replace the hover css pour player button except
+    // for the last round 
+    if (roundNb < 5) this.classList.add('player-item');
+}
+
+// remove computer's animation
+function removeComputerClick(){
+    this.classList.remove('computerPick');
+}
+
+function removeAnyAnimation() {
+    rockBtn.classList.remove('playerPick');
+    paperBtn.classList.remove('playerPick');
+    scissorsBtn.classList.remove('playerPick');
+    computerRockBtn.classList.remove('computerPick');
+    computerPaperBtn.classList.remove('computerPick');
+    computerScissorsBtn.classList.remove('computerPick');
+}
+
 function removeHover(){
-    var items = document.getElementsByClassName('player-item');
+    var items = document.getElementsByClassName('icone');
+    for (let item of items){
+        item.classList.add('computer-item');
+        item.classList.remove('player-item');
+    }
 }  
 
 // log result 
@@ -107,3 +159,12 @@ function refreshPage() {
 rockBtn.addEventListener('click', playGame);
 paperBtn.addEventListener('click', playGame);
 scissorsBtn.addEventListener('click', playGame);
+
+// check if animation is ended so we can restaure state
+rockBtn.addEventListener('transitionend', removeclick);
+paperBtn.addEventListener('transitionend', removeclick);
+scissorsBtn.addEventListener('transitionend', removeclick);
+
+computerRockBtn.addEventListener('transitionend', removeComputerClick);
+computerPaperBtn.addEventListener('transitionend', removeComputerClick);
+computerScissorsBtn.addEventListener('transitionend', removeComputerClick);
