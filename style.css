@@ -1,15 +1,7 @@
 body{
     background-color: #332b2b;
 }
-.site{
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
-.site-content{
-    flex: 1;
-    /*min-height: 20vh;*/
-}
+
 h1{
     text-align: center;
     color: white;
@@ -24,7 +16,7 @@ h1{
     margin: 0 auto;
     list-style: none;
     max-width: 50%;
-    min-width: 500px;
+    min-width: 400px;
 }
 
 .score{
@@ -63,7 +55,7 @@ h1{
     display: flex;
     justify-content: space-around;
     max-width: 50%;
-    min-width: 500px;
+    min-width: 400px;
     margin: 0 auto;
     align-items: center;
 }
@@ -99,13 +91,26 @@ h1{
 
 .result{
     background-color: rgb(63, 63, 63);
-    text-align: center;
-    min-height: 100px;
+    margin: 0 auto;
+    min-height: 30px;
+    max-width: 500px;
+    border-radius: 4px;
 }
 
-.footer{
-    display:flex;
-    /*min-height: 40px;*/
-    background-color: rgb(39, 39, 38);
+.log{
+    font-size: 18px;
+    list-style-type: none;
+    text-align: justify;
+    padding-top: 2px;
+}
+.tieLog{
+    color: rgb(241, 185, 83);
+}
 
+.PlayerLog{
+    color: rgb(106, 223, 83);
+}
+
+.ComputerLog{
+    color: rgb(223, 83, 83);
 }

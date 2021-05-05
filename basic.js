@@ -23,6 +23,7 @@ function roundPlay(user, computer){
     console.log(`computer played ${computer}`)
     if (user === computer) {
         console.log("Tie Game")
+        addLog('tie', roundNb, user, computer)
     }
     else if (
         (user === "rock" && computer === "scissors") ||
@@ -31,12 +32,14 @@ function roundPlay(user, computer){
             playerScore++;
             console.log(`${playerScore}`)
             userScore.textContent = `${playerScore}`; // Updates Score
+            addLog('Player', roundNb, user, computer)
             console.log("You win this round.")
         }
     else{
         computerScore++;
         console.log(`${computerScore}`)
         machineScore.textContent = `${computerScore}`; // Updates Score
+        addLog('Computer', roundNb, computer, user)
         console.log('You lose.')
     }
     roundNb++;
@@ -65,8 +68,28 @@ function addPlayAgainButton(){
     li.setAttribute("class", "score reset");
     li.setAttribute('id', 'resetBtn');
     firstLi.after(li);
+
     var resetBtn = document.querySelector('#resetBtn');
     resetBtn.addEventListener('click', refreshPage);
+}
+
+// log result 
+function addLog(winner, round, winSelect, loseSelect){
+    var ul = document.getElementById('logList');
+    var log = document.createElement('li');
+    if (winner === 'Player') id = 'playerLog' ;
+    else if (winner === 'Computer') id = 'computerLog';
+    else {id = 'tieLog';}
+    if (id === "tieLog"){
+        log.textContent = `Round ${round}:  Tie game. ${winSelect} vs ${loseSelect}. Score: ${playerScore} - ${computerScore} `;
+    }
+    else  log.textContent =`Round ${round}:  ${winner} won. ${winSelect} beats ${loseSelect}. Score: ${playerScore} - ${computerScore}`;
+   
+    log.setAttribute('class', `log ${winner}Log`);
+    console.log(ul)
+    ul.insertBefore(log, ul.childNodes[0])  // Insert <li> before the first child of <ul> 
+
+
 }
 
 // reload the page
