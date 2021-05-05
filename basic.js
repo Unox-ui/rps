@@ -71,7 +71,6 @@ function addPlayAgainButton(){
 
 function removeHover(){
     var items = document.getElementsByClassName('player-item');
-    for item
 }  
 
 // log result 

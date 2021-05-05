@@ -100,9 +100,15 @@ h1{
 .log{
     font-size: 18px;
     list-style-type: none;
-    text-align: left;
+    text-align: justify;
     padding-top: 2px;
     max-width: 500px;
+}
+
+@media only screen and (max-width:500px){
+    .log{
+        font-size: 14px;
+    }
 }
 
 .finalLog{
