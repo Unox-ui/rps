@@ -56,7 +56,6 @@ h1{
     cursor: pointer;
     background-color: #8f7f7f;
     color: black;
-    font-size: 16px;
     text-transform: uppercase;
 }
 
@@ -99,7 +98,7 @@ h1{
 }
 
 .result{
-    background-color: lime;
+    background-color: rgb(63, 63, 63);
     text-align: center;
     min-height: 100px;
 }
@@ -107,6 +106,6 @@ h1{
 .footer{
     display:flex;
     /*min-height: 40px;*/
-    background-color: sienna;
+    background-color: rgb(39, 39, 38);
 
 }
