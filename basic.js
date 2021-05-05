@@ -8,8 +8,6 @@ const maxPoints = 5;
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
-const resetBtn = document.querySelector('#resetBtn');
-
 
 //Score declaration
 const userScore = document.querySelector('#user-score')
@@ -55,6 +53,7 @@ function playGame() {
         paperBtn.removeEventListener('click', playGame);
         scissorsBtn.removeEventListener('click', playGame);
         addPlayAgainButton()
+
     }
 }
 
@@ -66,6 +65,8 @@ function addPlayAgainButton(){
     li.setAttribute("class", "score reset");
     li.setAttribute('id', 'resetBtn');
     firstLi.after(li);
+    var resetBtn = document.querySelector('#resetBtn');
+    resetBtn.addEventListener('click', refreshPage);
 }
 
 // reload the page
@@ -76,4 +77,3 @@ function refreshPage() {
 rockBtn.addEventListener('click', playGame);
 paperBtn.addEventListener('click', playGame);
 scissorsBtn.addEventListener('click', playGame);
-resetBtn.addEventListener('click', refreshPage);
