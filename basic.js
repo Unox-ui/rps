@@ -4,18 +4,12 @@ let playerScore = 0;
 let roundNb = 1;
 const maxPoints = 5;
 
-//Creation of play again button 
-const firstLi = document.getElementById('user-score');
-const li = document.createElement('li');
-li.appendChild(document.createTextNode('Play Again'));
-li.setAttribute("class", "score reset");
-li.setAttribute('id', 'resetBtn');
-
 //Button declaration
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
 const resetBtn = document.querySelector('#resetBtn');
+
 
 //Score declaration
 const userScore = document.querySelector('#user-score')
@@ -66,6 +60,11 @@ function playGame() {
 
 // Add a button to play again
 function addPlayAgainButton(){
+    var firstLi = document.getElementById('user-score');
+    var li = document.createElement('li');
+    li.appendChild(document.createTextNode('Play Again'));
+    li.setAttribute("class", "score reset");
+    li.setAttribute('id', 'resetBtn');
     firstLi.after(li);
 }
 
@@ -73,7 +72,6 @@ function addPlayAgainButton(){
 function refreshPage() {
     location.reload();
 }
-
 
 rockBtn.addEventListener('click', playGame);
 paperBtn.addEventListener('click', playGame);
